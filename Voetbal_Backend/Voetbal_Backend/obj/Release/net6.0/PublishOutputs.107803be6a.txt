@@ -1,0 +1,11 @@
+C:\Users\Gebruiker\source\repos\voetbal\Voetbal_Backend\Voetbal_Backend\obj\Docker\publish\Voetbal_Backend.exe
+C:\Users\Gebruiker\source\repos\voetbal\Voetbal_Backend\Voetbal_Backend\obj\Docker\publish\appsettings.Development.json
+C:\Users\Gebruiker\source\repos\voetbal\Voetbal_Backend\Voetbal_Backend\obj\Docker\publish\appsettings.json
+C:\Users\Gebruiker\source\repos\voetbal\Voetbal_Backend\Voetbal_Backend\obj\Docker\publish\Voetbal_Backend.dll
+C:\Users\Gebruiker\source\repos\voetbal\Voetbal_Backend\Voetbal_Backend\obj\Docker\publish\Voetbal_Backend.deps.json
+C:\Users\Gebruiker\source\repos\voetbal\Voetbal_Backend\Voetbal_Backend\obj\Docker\publish\Voetbal_Backend.runtimeconfig.json
+C:\Users\Gebruiker\source\repos\voetbal\Voetbal_Backend\Voetbal_Backend\obj\Docker\publish\Voetbal_Backend.pdb
+C:\Users\Gebruiker\source\repos\voetbal\Voetbal_Backend\Voetbal_Backend\obj\Docker\publish\Microsoft.OpenApi.dll
+C:\Users\Gebruiker\source\repos\voetbal\Voetbal_Backend\Voetbal_Backend\obj\Docker\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Gebruiker\source\repos\voetbal\Voetbal_Backend\Voetbal_Backend\obj\Docker\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Gebruiker\source\repos\voetbal\Voetbal_Backend\Voetbal_Backend\obj\Docker\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
