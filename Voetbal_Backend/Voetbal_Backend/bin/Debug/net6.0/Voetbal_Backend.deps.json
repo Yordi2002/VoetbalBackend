@@ -143,25 +143,20 @@
       "System.Security.Principal.Windows/4.7.0": {},
       "DAL/1.0.0": {
         "dependencies": {
-          "Interface": "1.0.0",
-          "System.Data.SqlClient": "4.8.5"
+          "Interface": "1.0.0"
         },
         "runtime": {
           "DAL.dll": {}
         }
       },
       "Interface/1.0.0": {
-        "dependencies": {
-          "System.Data.SqlClient": "4.8.5"
-        },
         "runtime": {
           "Interface.dll": {}
         }
       },
       "Logic/1.0.0": {
         "dependencies": {
-          "Interface": "1.0.0",
-          "System.Data.SqlClient": "4.8.5"
+          "Interface": "1.0.0"
         },
         "runtime": {
           "Logic.dll": {}
