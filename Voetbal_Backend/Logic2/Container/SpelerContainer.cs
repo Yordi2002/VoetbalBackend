@@ -3,6 +3,7 @@ using Interface.Interface;
 using Logic.Classes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,18 @@ namespace Logic.Container
 
             }
             return spelerList;
+        }
+        public void AddSpeler(Speler speler)
+        {
+            context.AddSpeler(speler.ToDTO());
+        }
+        public void DeleteSpeler(Speler speler)
+        {
+            context.DeleteSpeler(speler.ToDTO());
+        }
+        public void UpdateSpeler(Speler speler)
+        {
+            context.UpdateSpeler(speler.ToDTO());
         }
     }
 }

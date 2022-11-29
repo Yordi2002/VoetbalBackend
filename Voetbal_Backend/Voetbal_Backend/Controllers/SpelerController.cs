@@ -29,7 +29,48 @@ namespace VoetbalWeb.Controllers
             var json = JsonSerializer.Serialize(spelers);
             return json;
         }
+        [HttpPost]
+        [Route("api/[controller]")]
+        public IActionResult AddSpeler(Speler speler)
+        {
+            try
+            {
+                pc.AddSpeler(speler);
+                return Ok(speler);
+            }
+            catch
+            {
+                return Unauthorized();
+            }
+        }
+        [HttpDelete]
+        [Route("api/[controller]")]
+        public IActionResult DeleteSpeler(Speler speler)
+        {
+            try
+            {
+                pc.DeleteSpeler(speler);
+                return Ok(speler);
+            }
+            catch
+            {
+                return Unauthorized();
+            }
+        }
 
-
+        [HttpPatch]
+        [Route("api/[controller]")]
+        public IActionResult UpdateSpeler(Speler speler)
+        {
+            try
+            {
+                pc.UpdateSpeler(speler);
+                return Ok(speler);
+            }
+            catch
+            {
+                return Unauthorized();
+            }
+        }
     }
 }

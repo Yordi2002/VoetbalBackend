@@ -57,5 +57,74 @@ namespace DAL.Context
                 con.Close();
             }
         }
+        public void AddSpeler(SpelerDTO speler)
+        {
+            SqlConnection con = new SqlConnection(connectionstring);
+            try
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("INSERT INTO speler (Naam, Land, Positie, TeamNaam) values (@NM, @LD, @PS, @TN)", con);
+                com.Parameters.AddWithValue("@NM", speler.Naam);
+                com.Parameters.AddWithValue("@LD", speler.Land);
+                com.Parameters.AddWithValue("@PS", speler.Positie);
+                com.Parameters.AddWithValue("@TN", speler.TeamNaam);
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception Message: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void DeleteSpeler(SpelerDTO speler)
+        {
+            SqlConnection con = new SqlConnection(connectionstring);
+            try
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("DELETE FROM speler WHERE SpelerID = @SID", con);
+                com.Parameters.AddWithValue("@SID", speler.SpelerID);
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception Message: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void UpdateSpeler(SpelerDTO speler)
+        {
+            SqlConnection con = new SqlConnection(connectionstring);
+            try
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("UPDATE speler SET Naam = @NM,Land = @LD ,Positie = @PS, TeamID = @TID where SpelerID = @SID", con);
+
+                com.Parameters.AddWithValue("@NM", speler.Naam);
+                com.Parameters.AddWithValue("@LD", speler.Land);
+                com.Parameters.AddWithValue("@PS", speler.Positie);
+                com.Parameters.AddWithValue("@TID", speler.TeamID);
+                com.Parameters.AddWithValue("@SID", speler.SpelerID);
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception Message: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
