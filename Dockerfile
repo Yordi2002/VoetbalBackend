@@ -7,8 +7,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["Voetbal_Backend.csproj", "Voetbal_Backend/"]
-RUN dotnet restore "Voetbal_Backend.csproj"
+COPY ["Voetbal_Backend/Voetbal_Backend.csproj", "Voetbal_Backend/"]
+RUN dotnet restore "Voetbal_Backend/Voetbal_Backend.csproj"
 COPY . .
 WORKDIR "/src/Voetbal_Backend"
 RUN dotnet build "Voetbal_Backend.csproj" -c Release -o /app/build
