@@ -21,7 +21,7 @@ namespace DAL.Context
         }
 
         public List<SpelerDTO> GetAllSpelers()
-        {
+        { 
             SqlConnection con = new SqlConnection(connectionstring);
             try
             {
