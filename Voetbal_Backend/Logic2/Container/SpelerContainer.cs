@@ -45,5 +45,8 @@ namespace Logic.Container
         {
             context.UpdateSpeler(speler.ToDTO());
         }
+
+
+
     }
 }
