@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: yordi2002/voetbal-frontend_container:latest
+          tags: yordi2002/voetbal_backend:latest
