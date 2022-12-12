@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interface.Interface
+namespace UnitTest.Container
 {
-    public interface IUserContext
+    internal class StadionContainerTest
     {
     }
 }

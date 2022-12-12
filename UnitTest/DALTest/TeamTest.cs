@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logic.Container
+namespace UnitTest.DALTest
 {
-    public class UserContainer
+    internal class TeamTest
     {
     }
 }
