@@ -1,12 +1,23 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Logic.Container;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Logic.Classes;
+using UnitTest.DALTest;
 
 namespace UnitTest.Container
 {
-    internal class StadionContainerTest
+
+    [TestClass]
+    public class StadionContainerTest
     {
+        [TestMethod]
+        public void GetAllStadions()
+        {
+            StadionContainer stadionContainer = new StadionContainer(new stadion());
+            stadionContainer.GetAllStadions();
+            Assert.AreEqual(3, stadionContainer.GetAllStadions().Count);
+        }
     }
 }

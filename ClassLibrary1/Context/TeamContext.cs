@@ -57,45 +57,6 @@ namespace DAL.Context
                 con.Close();
             }
         }
-        
-        /*
-        public List<TeamDTO> GetAllWedstrijden()
-        {
-            SqlConnection con = new SqlConnection(connectionstring);
-            try
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("Select Wedstrijd.*, Stadion.StadionNaam, Teams.TeamNaam From Wedstrijd INNER JOIN Stadion On Wedstrijd.StadionID = Stadion.StadionID INNER JOIN Teams On Wedstrijd.ThuisTeamID  = Teams.TeamID", con);
-                List<TeamDTO> dtos = new List<TeamDTO>();
-                cmd.ExecuteNonQuery();
-                SqlDataReader r = cmd.ExecuteReader();
-                while (r.Read())
-                {
-                    TeamDTO dto = new TeamDTO();
-                    dto.WedstrijdID = Convert.ToInt32(r["WedstrijdID"]);
-                    dto.ThuisTeamID = Convert.ToInt32(r["ThuisTeamID"]);
-                    dto.UitTeamID = Convert.ToInt32(r["UitTeamID"]);
-                    dto.StadionID = Convert.ToInt32(r["StadionID"]);
-                    dto.TeamNaam = r["Teamnaam"].ToString();
-                    dto.StadionNaam = r["StadionNaam"].ToString();
 
-                    dtos.Add(dto);
-
-                }
-                r.Close();
-
-                return dtos;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Exception Message: " + ex.Message);
-                throw;
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-        */
     }
 }

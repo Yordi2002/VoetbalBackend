@@ -1,130 +1,132 @@
-﻿using Interface.DTO;
+﻿using Dapper;
+using Interface.DTO;
 using Interface.Interface;
-using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Context
 {
-    public class SpelerContext : ISpelerContext
+    public class SpelerContext : Database, ISpelerContext
     {
-        private readonly string connectionstring;
-        private readonly SQLVerbinding con;
+        private readonly string cons;
+        private readonly IDbConnection connection;
+
         public SpelerContext(string cs)
         {
-            connectionstring = cs;
-            con = new SQLVerbinding(connectionstring);
+            this.cons = cs;
+            connection = new System.Data.SqlClient.SqlConnection(cs);
         }
 
+        //GetAll
         public List<SpelerDTO> GetAllSpelers()
-        { 
-            SqlConnection con = new SqlConnection(connectionstring);
+        {
+            var sql = "SELECT * from Speler";
+            List<SpelerDTO> list = new List<SpelerDTO>();
+
             try
             {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("Select Speler.*, Teams.TeamNaam From Speler INNER JOIN Teams On Speler.TeamID = Teams.TeamID", con);
-                List<SpelerDTO> dtos = new List<SpelerDTO>();
-                cmd.ExecuteNonQuery();
-                SqlDataReader r = cmd.ExecuteReader();
-                while (r.Read())
+                using (connection)
                 {
-                    SpelerDTO dto = new SpelerDTO();
-                    dto.SpelerID = Convert.ToInt32(r["SpelerID"]);
-                    dto.TeamID = Convert.ToInt32(r["TeamID"]);
-                    dto.Naam = r["Naam"].ToString();
-                    dto.Land = r["Land"].ToString();
-                    dto.Positie = r["Positie"].ToString();
-                    dto.TeamNaam = r["TeamNaam"].ToString();
-
-                    dtos.Add(dto);
-
+                    list = connection.Query<SpelerDTO>(sql).ToList();
                 }
-                r.Close();
-
-                return dtos;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Exception Message: " + ex.Message);
-                throw;
+                throw new Exception(ex.Message);
             }
             finally
             {
-                con.Close();
+                connection.Close();
             }
+            return list;
         }
+
+        //Create
         public void AddSpeler(SpelerDTO speler)
         {
-            SqlConnection con = new SqlConnection(connectionstring);
+            var sql = "INSERT INTO Product(Naam, Land, Positie) VALUES(@Naam,@Land,@Positie)";
             try
             {
-                con.Open();
-                SqlCommand com = new SqlCommand("INSERT INTO speler (Naam, Land, Positie, TeamNaam) values (@NM, @LD, @PS, @TN)", con);
-                com.Parameters.AddWithValue("@NM", speler.Naam);
-                com.Parameters.AddWithValue("@LD", speler.Land);
-                com.Parameters.AddWithValue("@PS", speler.Positie);
-                com.Parameters.AddWithValue("@TN", speler.TeamNaam);
-                com.ExecuteNonQuery();
+                using (connection)
+                {
+                    connection.Query<SpelerDTO>(sql, new { Naam = speler.Naam, Land = speler.Land, Positie = speler.Positie });
+                }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Exception Message: " + ex.Message);
-                throw;
+                throw new Exception(ex.Message);
             }
             finally
             {
-                con.Close();
+                connection.Close();
             }
         }
+
+        //Delete
         public void DeleteSpeler(SpelerDTO speler)
         {
-            SqlConnection con = new SqlConnection(connectionstring);
+            var sql = "DELETE FROM Speler WHERE SpelerID = @SpelerID";
             try
             {
-                con.Open();
-                SqlCommand com = new SqlCommand("DELETE FROM speler WHERE SpelerID = @SID", con);
-                com.Parameters.AddWithValue("@SID", speler.SpelerID);
-                com.ExecuteNonQuery();
+                using (connection)
+                {
+                    connection.Query<SpelerDTO>(sql, new { SpelerID = speler.SpelerID});
+                }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Exception Message: " + ex.Message);
-                throw;
+                throw new Exception(ex.Message);
             }
             finally
             {
-                con.Close();
+                connection.Close();
             }
         }
 
+        //Update
         public void UpdateSpeler(SpelerDTO speler)
         {
-            SqlConnection con = new SqlConnection(connectionstring);
+            var sql = "Update Speler SET Naam = @Naam, Land = @Land, Positie = @Positie, TeamID = @TeamID WHERE SpelerID = '" + speler.SpelerID + "'";
             try
             {
-                con.Open();
-                SqlCommand com = new SqlCommand("UPDATE speler SET Naam = @NM,Land = @LD ,Positie = @PS, TeamID = @TID where SpelerID = @SID", con);
-
-                com.Parameters.AddWithValue("@NM", speler.Naam);
-                com.Parameters.AddWithValue("@LD", speler.Land);
-                com.Parameters.AddWithValue("@PS", speler.Positie);
-                com.Parameters.AddWithValue("@TID", speler.TeamID);
-                com.Parameters.AddWithValue("@SID", speler.SpelerID);
-                com.ExecuteNonQuery();
+                using (connection)
+                {
+                    connection.Query<SpelerDTO>(sql, new { Naam = speler.Naam, Land = speler.Land, Positie = speler.Positie, TeamID = speler.TeamID});
+                }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Exception Message: " + ex.Message);
-                throw;
+                throw new Exception(ex.Message);
             }
             finally
             {
-                con.Close();
+                connection.Close();
             }
+        }
+
+        //GetID
+        public SpelerDTO GetSpelerById(int id)
+        {
+            SpelerDTO speler = new SpelerDTO();
+            var sql = "SELECT * FROM Speler WHERE SpelerID = '" + id + "'";
+
+            try
+            {
+                using (connection)
+                {
+                    speler = connection.QuerySingle<SpelerDTO>(sql);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return speler;
         }
     }
 }
