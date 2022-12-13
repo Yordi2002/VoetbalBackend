@@ -14,11 +14,11 @@ namespace UnitTest.Container
         [TestMethod]
         public void GetAllTeams_Test()
         {
-            TeamContainer teamContainer = new TeamContainer(new Team());
+            TeamContainer teamContainer = new TeamContainer(new team());
 
             teamContainer.GetAllTeams();
 
-            Assert.AreEqual(3, teamContainer.GetAll().Count);
+            Assert.AreEqual(3, teamContainer.GetAllTeams().Count);
         }
 
 
