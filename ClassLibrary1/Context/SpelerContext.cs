@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 
+
 namespace DAL.Context
 {
     public class SpelerContext : Database, ISpelerContext
@@ -45,7 +46,7 @@ namespace DAL.Context
         //Create
         public void AddSpeler(SpelerDTO speler)
         {
-            var sql = "INSERT INTO Product(Naam, Land, Positie) VALUES(@Naam,@Land,@Positie)";
+            var sql = "INSERT INTO Speler(Naam, Land, Positie) VALUES(@Naam,@Land,@Positie)";
             try
             {
                 using (connection)

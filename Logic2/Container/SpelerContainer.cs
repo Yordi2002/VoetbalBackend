@@ -23,7 +23,6 @@ namespace Logic.Container
         {
             var dtos = context.GetAllSpelers();
 
-            List<SpelerDTO> spelerDTOlist = context.GetAllSpelers();
             List<Speler> spelerList = new List<Speler>();
 
             foreach (var d in dtos)

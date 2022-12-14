@@ -16,7 +16,7 @@ namespace Logic.Classes
         public string Positie { get; set; }
         public string TeamNaam { get; set; }
 
-        public Speler (SpelerDTO spelerDTO)
+        public Speler(SpelerDTO spelerDTO)
         {
             SpelerID = spelerDTO.SpelerID;
             TeamID = spelerDTO.TeamID;
@@ -46,6 +46,8 @@ namespace Logic.Classes
                 Positie = Positie,
                 TeamNaam = TeamNaam
             };
+        }
+        public Speler(){
         }
     }
 }
