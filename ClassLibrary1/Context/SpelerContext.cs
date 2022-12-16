@@ -44,7 +44,7 @@ namespace DAL.Context
         }
 
         //Create
-        public void AddSpeler(SpelerDTO speler)
+        public void AddSpeler(SpelerDTO speler) 
         {
             var sql = "INSERT INTO Speler(Naam, Land, Positie) VALUES(@Naam,@Land,@Positie)";
             try
