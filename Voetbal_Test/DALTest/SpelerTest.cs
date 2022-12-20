@@ -35,9 +35,14 @@ namespace UnitTest.DALTest
         }
         public void UpdateSpeler(SpelerDTO speler)
         {
-            var index = SpelerDTOs.FindIndex(dto => dto.SpelerID == speler.SpelerID);
-            SpelerDTOs.RemoveAt(index);
-            SpelerDTOs.Add(speler);
+            for(var i =0; i < SpelerDTOs.Count; i++)
+            {
+                if (SpelerDTOs[i].SpelerID == speler.SpelerID)
+                {
+                    (SpelerDTOs[i]) = speler;
+                }
+            }
+            
         }
 
         public SpelerDTO GetSpelerById(int id)

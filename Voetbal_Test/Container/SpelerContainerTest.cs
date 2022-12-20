@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Logic.Classes;
 using UnitTest.DALTest;
+using System.Diagnostics.CodeAnalysis;
 
 namespace UnitTest.Container
 {
@@ -40,7 +41,7 @@ namespace UnitTest.Container
 
             spelerContainer.DeleteSpeler(new Speler(1, 1, "Pieter", "Nederland", "Keeper", "sparta"));
 
-            Assert.AreEqual(3, spelerContainer.GetAllSpelers().Count());
+            Assert.AreEqual(2, spelerContainer.GetAllSpelers().Count());
         }
 
         [TestMethod]
@@ -50,7 +51,9 @@ namespace UnitTest.Container
 
             spelerContainer.UpdateSpeler(new Speler(2, 5, "Krul", "Nederland", "Keeper", "psv"));
 
-            Assert.AreEqual(5, spelerContainer.GetSpelerById(2).TeamID);
+            Assert.IsNotNull(spelerContainer.GetSpelerById(2));
+            Assert.AreEqual(2, spelerContainer.GetAllSpelers()[1].SpelerID);
+            Assert.AreEqual(5, spelerContainer.GetAllSpelers()[1].TeamID);
         }
 
         [TestMethod]
