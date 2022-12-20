@@ -21,15 +21,35 @@ namespace UnitTest.DALTest
         }
         public void AddSpeler(SpelerDTO speler)
         {
-            return;
+            SpelerDTOs.Add(speler);
         }
         public void DeleteSpeler(SpelerDTO speler)
         {
-            return;
+            for (int i = 0; i < SpelerDTOs.Count; i++)
+            {
+                if (SpelerDTOs[i].SpelerID == speler.SpelerID)
+                {
+                    SpelerDTOs.Remove(SpelerDTOs[i]);
+                }
+            }
         }
         public void UpdateSpeler(SpelerDTO speler)
         {
-            return;
+            var index = SpelerDTOs.FindIndex(dto => dto.SpelerID == speler.SpelerID);
+            SpelerDTOs.RemoveAt(index);
+            SpelerDTOs.Add(speler);
+        }
+
+        public SpelerDTO GetSpelerById(int id)
+        {
+            for (int i = 0; i < SpelerDTOs.Count; i++)
+            {
+                if (SpelerDTOs[i].SpelerID == id)
+                {
+                    return SpelerDTOs[i];
+                }
+            }
+            return default;
         }
     }
 }

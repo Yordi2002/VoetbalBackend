@@ -44,7 +44,12 @@ namespace Logic.Container
         {
             context.UpdateSpeler(speler.ToDTO());
         }
+        public Speler GetSpelerById(int id)
+        {
+            Speler speler = new Speler(context.GetSpelerById(id));
+            return speler;
 
+        }
 
 
     }
