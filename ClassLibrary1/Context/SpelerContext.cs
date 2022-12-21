@@ -2,9 +2,6 @@
 using Interface.DTO;
 using Interface.Interface;
 using System.Data;
-using System.Data.SqlClient;
-using System.Diagnostics;
-
 
 namespace DAL.Context
 {

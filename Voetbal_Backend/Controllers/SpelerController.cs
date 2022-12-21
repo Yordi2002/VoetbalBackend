@@ -3,7 +3,6 @@ using Logic.Classes;
 using Logic.Container;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel;
 using System.Text.Json;
 
 namespace VoetbalWeb.Controllers

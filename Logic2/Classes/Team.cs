@@ -1,9 +1,4 @@
 ﻿using Interface.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logic.Classes
 {
@@ -30,12 +25,12 @@ namespace Logic.Classes
 
         public Team(int TeamID, int StadionID, string TeamNaam, string ThuisShirt, string UitShirt, string StadionNaam)
         {
-            TeamID = TeamID;
-            StadionID = StadionID;
-            TeamNaam = TeamNaam;
-            ThuisShirt = ThuisShirt;
-            UitShirt = UitShirt;
-            StadionNaam = StadionNaam;
+            this.TeamID = TeamID;
+            this.StadionID = StadionID;
+            this.TeamNaam = TeamNaam;
+            this.ThuisShirt = ThuisShirt;
+            this.UitShirt = UitShirt;
+            this.StadionNaam = StadionNaam;
         }
 
         public TeamDTO ToDTO()

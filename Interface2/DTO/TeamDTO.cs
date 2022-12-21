@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Interface.DTO
+﻿namespace Interface.DTO
 {
     public class TeamDTO
     {
@@ -18,12 +12,12 @@ namespace Interface.DTO
 
         public TeamDTO(int TeamID, int StadionID, string TeamNaam, string ThuisShirt, string UitShirt, string StadionNaam)
         {
-            TeamID = TeamID;
-            StadionID = StadionID;
-            TeamNaam = TeamNaam;
-            ThuisShirt = ThuisShirt;
-            UitShirt = UitShirt;
-            StadionNaam = StadionNaam;
+            this.TeamID = TeamID;
+            this.StadionID = StadionID;
+            this.TeamNaam = TeamNaam;
+            this.ThuisShirt = ThuisShirt;
+            this.UitShirt = UitShirt;
+            this.StadionNaam = StadionNaam;
         }
 
         public TeamDTO() { }

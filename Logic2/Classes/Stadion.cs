@@ -1,9 +1,4 @@
 ﻿using Interface.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logic.Classes
 {
@@ -24,10 +19,10 @@ namespace Logic.Classes
 
         public Stadion(int StadionID, string StadionNaam, int Capaciteit, string Locatie)
         {
-            StadionID = StadionID;
-            StadionNaam = StadionNaam;
-            Capaciteit = Capaciteit;
-            Locatie = Locatie;
+            this.StadionID = StadionID;
+            this.StadionNaam = StadionNaam;
+            this.Capaciteit = Capaciteit;
+            this.Locatie = Locatie;
         }
         public StadionDTO ToDTO()
         {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Interface.DTO
+﻿namespace Interface.DTO
 {
     public class SpelerDTO
     {
@@ -17,12 +11,12 @@ namespace Interface.DTO
 
         public SpelerDTO(int SpelerID, int TeamID, string Naam, string Land, string Positie, string TeamNaam)
         {
-            SpelerID = SpelerID;
-            TeamID = TeamID;
-            Naam = Naam;
-            Land = Land;
-            Positie = Positie;
-            TeamNaam = TeamNaam;
+            this.SpelerID = SpelerID;
+            this.TeamID = TeamID;
+            this.Naam = Naam;
+            this.Land = Land;
+            this.Positie = Positie;
+            this.TeamNaam = TeamNaam;
         }
 
         public SpelerDTO() { }

@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Logic.Container;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Logic.Classes;
 using UnitTest.DALTest;
 
 namespace UnitTest.Container
